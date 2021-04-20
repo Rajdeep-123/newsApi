@@ -1,0 +1,28 @@
+.main_box{
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    margin: 20px;
+}
+
+.withImg{
+    display: block;
+    border: 1px solid rgb(77, 76, 76);
+    width: 60%;
+    padding: 10px;
+}
+
+.withImg img{
+    height: 200px;
+    height: 200px;
+}
+
+.data{
+    width: 100%;
+    padding: 10px;
+}
+
+.author{
+    font-size: 12px;
+    color: gray;
+}

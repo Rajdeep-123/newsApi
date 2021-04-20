@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>News API project</title>
+
+</head>
+<body>
+<div id="root">
+</div>
+</body>
+<script>
+
+    const country = "ca";
+    const category="technology";
+    const key = "810c8bff737a4c05806251bda015c8e1";
+    const url =`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${key}`;
+    fetch(url).then(result=>result.json()).then(data=>{
+        $("#root").append(`
+        <h2 style="text-align: center;">Welcome to the world of ${category}</h2>`)
+        for (let i = 0; i <= data.articles.length; i++) {
+
+            $("#root").append(
+               `
+
+               <div class="main_box">
+        <div class="withImg">
+            <img src =${data.articles[i].urlToImage}
+        </div>
+        <div class="data">
+            <p>${new Date(data.articles[i].publishedAt).toLocaleString()}</p>
+            <h3>${data.articles[i].title}- <span class="author">Written by ${data.articles[i].author} </span></h3>
+            <p>${data.articles[i].description}...<a href=${data.articles[i].url} target="_blank">Read full article</a></p>
+        </div>
+    </div>
+
+
+                                            `
+            )
+
+        }
+    }
+    );
+
+</script>
+</html>
