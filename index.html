@@ -17,7 +17,7 @@
 
     const country = "ca";
     const category="technology";
-    const key = "810c8bff737a4c05806251bda015c8e1";
+    const key= YOUR API KEY;
     const url =`https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${key}`;
     fetch(url).then(result=>result.json()).then(data=>{
         $("#root").append(`
